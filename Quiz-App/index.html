@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MyQuiz-App | Interactive Quiz</title>
+
+    <meta name="description"
+          content="MyQuiz-App — a responsive and interactive web development quiz.">
+
+    <!-- Bootstrap 5 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Our custom design -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <!-- Navigation -->
+    <header class="navbar-container">
+        <a href="#" class="brand">
+            <span class="brand-icon">M</span>
+            <span>MyQuiz-App<span class="brand-dot">.</span></span>
+        </a>
+
+        <div class="nav-actions">
+            <span class="nav-caption">LEARN • PLAY • GROW</span>
+
+            <button
+                id="themeToggle"
+                class="theme-button"
+                type="button"
+                aria-label="Switch to dark mode"
+                title="Switch theme"
+            >☾</button>
+        </div>
+    </header>
+
+    <main class="container main-container">
+
+        <!-- Welcome Screen -->
+        <section id="welcomeScreen" class="welcome-layout">
+
+            <div class="welcome-content">
+                <div class="eyebrow">
+                    <span class="eyebrow-line"></span>
+                    YOUR KNOWLEDGE, YOUR MOMENT
+                </div>
+
+                <h1>
+                    Think fast.<br>
+                    <span class="gradient-text">Shine brighter.</span>
+                </h1>
+
+                <p class="welcome-description">
+                    Challenge your mind, discover what you know,
+                    and learn something new with every question.
+                    Your next achievement starts here.
+                </p>
+
+                <div class="feature-item">
+                    <div class="feature-icon purple-icon">✦</div>
+                    <div>
+                        <h3>Smart challenge</h3>
+                        <p>Questions shuffled every round</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon mint-icon">◷</div>
+                    <div>
+                        <h3>Beat the clock</h3>
+                        <p>15 seconds to think and answer</p>
+                    </div>
+                </div>
+
+                <div class="technology-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>Bootstrap</span>
+                </div>
+            </div>
+
+            <!-- Start Card -->
+            <div class="launch-card">
+                <div class="card-topline">
+                    <span>READY WHEN YOU ARE</span>
+                    <span class="sparkle">✳</span>
+                </div>
+
+                <div class="quiz-logo-art">
+                    <span>M</span>
+                    <i>✦</i>
+                </div>
+
+                <h2>Make it count.</h2>
+
+                <p class="card-description">
+                    Every question is a new opportunity to learn.
+                </p>
+
+                <div class="quiz-stats">
+                    <div>
+                        <strong id="introQuestionCount">10</strong>
+                        <span>QUESTIONS</span>
+                    </div>
+                    <div>
+                        <strong>15s</strong>
+                        <span>PER QUESTION</span>
+                    </div>
+                    <div>
+                        <strong>100%</strong>
+                        <span>YOUR POTENTIAL</span>
+                    </div>
+                </div>
+
+                <label for="difficulty" class="form-label">
+                    Choose your challenge
+                </label>
+
+                <select id="difficulty" class="form-select difficulty-select">
+                    <option value="all">Mixed topics</option>
+                    <option value="easy">Beginner level</option>
+                    <option value="hard">Advanced level</option>
+                </select>
+
+                <button id="startButton" class="primary-button" type="button">
+                    Start the quiz <span>↗</span>
+                </button>
+
+                <p class="privacy-note">
+                    ✦ Learn at your pace. Celebrate your progress.
+                </p>
+            </div>
+        </section>
+
+        <!-- Quiz Screen -->
+        <section id="quizScreen" class="quiz-screen hidden">
+
+            <div class="quiz-heading">
+                <div>
+                    <div class="eyebrow">
+                        <span class="eyebrow-line"></span>
+                        QUIZ IN SESSION
+                    </div>
+                    <h2>Stay curious<span class="gradient-text">.</span></h2>
+                </div>
+
+                <div id="timerBox" class="timer-box">
+                    <span class="timer-symbol">◷</span>
+                    <div>
+                        <small>TIME LEFT</small>
+                        <strong id="timer">15s</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Segmented progress bar -->
+            <div class="progress-panel">
+                <div class="progress-information">
+                    <span id="questionProgress">QUESTION 01 / 10</span>
+                    <span id="progressPercentage">10% completed</span>
+                </div>
+
+                <div
+                    id="segmentedProgress"
+                    class="segmented-progress"
+                    role="progressbar"
+                    aria-label="Quiz progress"
+                    aria-valuemin="0"
+                    aria-valuemax="10"
+                    aria-valuenow="0"
+                ></div>
+
+                <div class="progress-legend">
+                    <span><i class="legend-correct"></i> Correct</span>
+                    <span><i class="legend-wrong"></i> Incorrect</span>
+                    <span><i class="legend-current"></i> Current</span>
+                </div>
+            </div>
+
+            <!-- Question card -->
+            <article class="question-card">
+                <div class="question-card-top">
+                    <span id="category" class="category-tag">HTML BASICS</span>
+                    <span id="questionNumber">01 / 10</span>
+                </div>
+
+                <h3 id="questionText">Your question appears here.</h3>
+
+                <p class="question-hint">
+                    Choose the best answer to continue.
+                </p>
+
+                <div id="answerOptions" class="answer-options"></div>
+
+                <div
+                    id="answerFeedback"
+                    class="answer-feedback hidden"
+                    role="status"
+                    aria-live="polite"
+                ></div>
+
+                <div class="question-footer">
+                    <span id="answerStatus">SELECT ONE OPTION</span>
+
+                    <button
+                        id="nextButton"
+                        class="primary-button next-button"
+                        type="button"
+                        disabled
+                    >
+                        Next question <span>→</span>
+                    </button>
+                </div>
+            </article>
+
+            <div class="quiz-bottom">
+                <span>✦ Keep going — progress is progress.</span>
+                <button id="exitButton" class="exit-button" type="button">
+                    Exit quiz
+                </button>
+            </div>
+        </section>
+
+        <!-- Results Screen -->
+        <section id="resultScreen" class="result-screen hidden">
+            <div class="result-card">
+                <div class="result-decoration">✦　✧　✦</div>
+                <div id="resultEmoji" class="result-emoji">🏆</div>
+
+                <div class="eyebrow centered">ROUND COMPLETE</div>
+
+                <h2 id="resultTitle">Brilliant work!</h2>
+                <p id="resultMessage">Your results are ready.</p>
+
+                <div id="scoreRing" class="score-ring">
+                    <div>
+                        <strong id="scorePercentage">0%</strong>
+                        <span>YOUR SCORE</span>
+                    </div>
+                </div>
+
+                <div class="result-statistics">
+                    <div>
+                        <strong id="correctAnswers">0</strong>
+                        <span>Correct</span>
+                    </div>
+                    <div>
+                        <strong id="wrongAnswers">0</strong>
+                        <span>Incorrect</span>
+                    </div>
+                    <div>
+                        <strong id="timeTaken">0:00</strong>
+                        <span>Time used</span>
+                    </div>
+                </div>
+
+                <div id="answerReview" class="answer-review"></div>
+
+                <div class="result-buttons">
+                    <button id="downloadPDF" class="primary-button" type="button">
+                        Download PDF report <span>↓</span>
+                    </button>
+
+                    <button id="playAgain" class="secondary-button" type="button">
+                        Play another round ↻
+                    </button>
+                </div>
+
+                <p class="pdf-note">
+                    Your PDF includes your score, answers, and explanations.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="page-footer">
+        <span>MYQUIZ-APP <b>●</b> INTERACTIVE LEARNING</span>
+        <span>Designed for curious minds ✦</span>
+    </footer>
+
+    <!-- PDF generation library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Our JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
