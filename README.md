@@ -8,6 +8,8 @@ Typingquiz-screenshots
 
 <img width="1920" height="1080" alt="Screenshot (195)" src="https://github.com/user-attachments/assets/124b0f33-295a-4fc2-b487-4e193c270f70" />
 
+<img width="1920" height="1080" alt="Screenshot (196)" src="https://github.com/user-attachments/assets/4618f240-20fa-453c-b652-68c5b822229c" />
+
 
 
 
