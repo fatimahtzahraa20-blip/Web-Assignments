@@ -10,6 +10,9 @@ Typingquiz-screenshots
 
 <img width="1920" height="1080" alt="Screenshot (196)" src="https://github.com/user-attachments/assets/4618f240-20fa-453c-b652-68c5b822229c" />
 
+<img width="1920" height="1080" alt="Screenshot (197)" src="https://github.com/user-attachments/assets/0ce8e38e-9ea8-4059-8918-d4249113c5e7" />
+
+
 
 
 
