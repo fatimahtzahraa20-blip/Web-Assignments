@@ -1,0 +1,658 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeQuest - Typing Challenge Game</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">⌨</div>
+            <h2>Type<span>Quest</span></h2>
+        </div>
+
+        <div class="user-profile">
+            <div class="user-avatar">F</div>
+            <div>
+                <h3>Player One</h3>
+                <p>Level <span id="user-level">1</span> Player</p>
+            </div>
+        </div>
+
+        <p class="nav-heading">MAIN MENU</p>
+
+        <nav class="sidebar-nav">
+            <a href="#dashboard" class="nav-link active"><span>⌂</span> Dashboard</a>
+            <a href="#typing-test" class="nav-link"><span>⌨</span> Typing Test</a>
+            <a href="#games" class="nav-link"><span>🎮</span> Mini Games</a>
+            <a href="#leaderboard" class="nav-link"><span>🏆</span> Leaderboard</a>
+            <a href="#achievements" class="nav-link"><span>🎖</span> Achievements</a>
+            <a href="#settings" class="nav-link"><span>⚙</span> Settings</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <p>Keep Practicing!</p>
+            <span>Every keystroke makes you better.</span>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div class="welcome-text">
+                <h2>Welcome Back, Player!</h2>
+                <p>Improve your typing speed and accuracy.</p>
+            </div>
+
+            <div class="topbar-right">
+                <span class="online-status">● Online</span>
+                <div class="top-avatar">F</div>
+            </div>
+        </header>
+
+
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="section">
+
+            <div class="hero-banner">
+                <div class="hero-content">
+                    <span class="hero-tag">YOUR TYPING JOURNEY STARTS HERE</span>
+                    <h1>Master Your Typing Skills!</h1>
+                    <p>Challenge yourself, improve your speed, and become a typing champion with TypeQuest.</p>
+                    <a href="#typing-test" class="primary-btn">Start Typing Test</a>
+                </div>
+
+                <div class="hero-decoration">
+                    <div class="keyboard-icon">⌨</div>
+                    <div class="floating-letter letter-one">A</div>
+                    <div class="floating-letter letter-two">Z</div>
+                    <div class="floating-letter letter-three">K</div>
+                </div>
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">⚡</div>
+                    <div>
+                        <p>Typing Speed</p>
+                        <h2><span id="dashboard-wpm">0</span> WPM</h2>
+                        <small>Words per minute</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon green">✓</div>
+                    <div>
+                        <p>Accuracy</p>
+                        <h2><span id="dashboard-accuracy">0</span>%</h2>
+                        <small>Typing accuracy</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">🏆</div>
+                    <div>
+                        <p>Total Score</p>
+                        <h2 id="dashboard-score">0</h2>
+                        <small>Your earned points</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon blue">⌨</div>
+                    <div>
+                        <p>Tests Completed</p>
+                        <h2 id="dashboard-tests">0</h2>
+                        <small>Typing practice sessions</small>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="section-heading">
+                <div>
+                    <h2>Quick Activities</h2>
+                    <p>Choose an activity to improve your skills.</p>
+                </div>
+            </div>
+
+            <div class="activity-grid">
+
+                <div class="activity-card">
+                    <div class="activity-icon purple">⌨</div>
+                    <h3>Typing Test</h3>
+                    <p>Test your typing speed and accuracy with timed passages.</p>
+                    <a href="#typing-test"><span>Start Practice →</span></a>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-icon pink">🫧</div>
+                    <h3>Bubble Pop</h3>
+                    <p>Pop floating bubbles by pressing their matching keys.</p>
+                    <a href="#games"><span>Play Game →</span></a>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-icon green">🧲</div>
+                    <h3>Key Magnet</h3>
+                    <p>Practice keyboard keys and improve your reaction time.</p>
+                    <a href="#games"><span>Play Game →</span></a>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TYPING TEST -->
+        <section id="typing-test" class="section">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Typing Speed Test</h2>
+                    <p>Measure your typing performance.</p>
+                </div>
+                <span class="section-badge">PRACTICE MODE</span>
+            </div>
+
+            <div class="typing-card">
+
+                <div class="typing-settings">
+
+                    <div class="setting-group">
+                        <label for="time-select">Test Duration</label>
+                        <select id="time-select">
+                            <option value="30">30 Seconds</option>
+                            <option value="60">60 Seconds</option>
+                            <option value="120">120 Seconds</option>
+                        </select>
+                    </div>
+
+                    <button id="restart-test" class="secondary-btn">↻ Restart Test</button>
+
+                </div>
+
+
+                <div class="typing-info">
+
+                    <div class="typing-stat">
+                        <span>Time Left</span>
+                        <h2 id="timer">30</h2>
+                    </div>
+
+                    <div class="typing-stat">
+                        <span>WPM</span>
+                        <h2 id="wpm">0</h2>
+                    </div>
+
+                    <div class="typing-stat">
+                        <span>Accuracy</span>
+                        <h2 id="accuracy">100%</h2>
+                    </div>
+
+                </div>
+
+
+                <div id="typing-text" class="typing-text">
+                    The quick brown fox jumps over the lazy dog.
+                    Practice makes a person perfect. Keep learning
+                    and improve your typing speed every day.
+                </div>
+
+                <textarea id="typing-input" rows="4"
+                    placeholder="Start typing the text above here..."
+                    disabled></textarea>
+
+                <div class="typing-bottom">
+                    <p id="typing-status">Press Start Test to begin your practice.</p>
+                    <button id="start-test" class="primary-btn">Start Test</button>
+                </div>
+
+            </div>
+
+
+            <div id="test-result" class="result-card hidden">
+
+                <div class="result-icon">🏆</div>
+                <h2>Test Completed!</h2>
+                <p>Here is your typing performance.</p>
+
+                <div class="result-grid">
+                    <div>
+                        <span>Typing Speed</span>
+                        <h3 id="result-wpm">0 WPM</h3>
+                    </div>
+
+                    <div>
+                        <span>Accuracy</span>
+                        <h3 id="result-accuracy">0%</h3>
+                    </div>
+
+                    <div>
+                        <span>Score</span>
+                        <h3 id="result-score">0</h3>
+                    </div>
+                </div>
+
+                <button id="try-again" class="primary-btn">Try Again</button>
+
+            </div>
+
+        </section>
+
+
+        <!-- MINI GAMES -->
+        <section id="games" class="section">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Typing Mini Games</h2>
+                    <p>Learn typing through fun challenges.</p>
+                </div>
+                <span class="section-badge">3 GAMES</span>
+            </div>
+
+
+            <div class="game-selection">
+
+                <div class="game-card">
+                    <div class="game-card-icon">🫧</div>
+                    <h3>Bubble Pop</h3>
+                    <p>Pop the bubbles by pressing the correct letters before they disappear.</p>
+                    <a href="#bubbles-game" class="game-btn">Play Bubble Pop →</a>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-card-icon">🧲</div>
+                    <h3>Key Magnet</h3>
+                    <p>Find and press the target key using your physical keyboard.</p>
+                    <a href="#keymagnet-game" class="game-btn">Play Key Magnet →</a>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-card-icon">🔤</div>
+                    <h3>Word Challenge</h3>
+                    <p>Type the displayed words correctly before the timer ends.</p>
+                    <a href="#word-game" class="game-btn">Play Word Challenge →</a>
+                </div>
+
+            </div>
+
+
+            <!-- BUBBLE POP -->
+            <div id="bubbles-game" class="game-area">
+
+                <div class="game-title">
+                    <div>
+                        <h2>🫧 Bubble Pop</h2>
+                        <p>Press the matching letter to pop each bubble.</p>
+                    </div>
+                    <span class="game-level">REACTION GAME</span>
+                </div>
+
+                <div class="setting-group">
+                    <label for="bubble-difficulty">Difficulty</label>
+                    <select id="bubble-difficulty">
+                        <option value="easy">Easy</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+
+                <div class="game-scoreboard">
+                    <div>
+                        <span>Score</span>
+                        <h3 id="bubble-score">0</h3>
+                    </div>
+
+                    <div>
+                        <span>Time Left</span>
+                        <h3 id="bubble-timer">30</h3>
+                    </div>
+
+                    <div>
+                        <span>Missed Bubbles</span>
+                        <h3 id="bubble-missed">0 / 6</h3>
+                    </div>
+                </div>
+
+                <div id="bubble-playground" class="bubble-playground">
+                    <div id="bubble-message" class="game-message">
+                        <h3>Ready to Pop?</h3>
+                        <p>Press Start Game and match the letters using your keyboard.</p>
+                    </div>
+                </div>
+
+                <div class="game-controls">
+                    <button id="start-bubbles" class="primary-btn">Start Game</button>
+                    <button id="stop-bubbles" class="secondary-btn">Stop Game</button>
+                </div>
+
+            </div>
+
+
+            <!-- KEY MAGNET -->
+            <div id="keymagnet-game" class="game-area">
+
+                <div class="game-title">
+                    <div>
+                        <h2>🧲 Key Magnet</h2>
+                        <p>Press the displayed key as quickly and accurately as possible.</p>
+                    </div>
+                    <span class="game-level">KEYBOARD TRAINING</span>
+                </div>
+
+
+                <div class="typing-settings">
+
+                    <div class="setting-group">
+                        <label for="key-set">Keyboard Key Set</label>
+                        <select id="key-set">
+                            <option value="home">Home Row</option>
+                            <option value="top">Top Row</option>
+                            <option value="bottom">Bottom Row</option>
+                            <option value="all">All Letters</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-group">
+                        <label for="key-difficulty">Difficulty</label>
+                        <select id="key-difficulty">
+                            <option value="easy">Easy</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <div class="game-scoreboard">
+
+                    <div>
+                        <span>Score</span>
+                        <h3 id="key-score">0</h3>
+                    </div>
+
+                    <div>
+                        <span>Time Left</span>
+                        <h3 id="key-timer">30</h3>
+                    </div>
+
+                    <div>
+                        <span>Correct Keys</span>
+                        <h3 id="key-correct">0</h3>
+                    </div>
+
+                </div>
+
+
+                <div class="key-playground">
+
+                    <p>YOUR TARGET KEY</p>
+
+                    <div id="target-key" class="target-key">A</div>
+
+                    <p id="key-feedback">Press Start Game to begin.</p>
+
+                    <div id="virtual-keyboard" class="virtual-keyboard">
+
+                        <div class="keyboard-row">
+                            <span class="virtual-key" data-key="Q">Q</span>
+                            <span class="virtual-key" data-key="W">W</span>
+                            <span class="virtual-key" data-key="E">E</span>
+                            <span class="virtual-key" data-key="R">R</span>
+                            <span class="virtual-key" data-key="T">T</span>
+                            <span class="virtual-key" data-key="Y">Y</span>
+                            <span class="virtual-key" data-key="U">U</span>
+                            <span class="virtual-key" data-key="I">I</span>
+                            <span class="virtual-key" data-key="O">O</span>
+                            <span class="virtual-key" data-key="P">P</span>
+                        </div>
+
+                        <div class="keyboard-row">
+                            <span class="virtual-key" data-key="A">A</span>
+                            <span class="virtual-key" data-key="S">S</span>
+                            <span class="virtual-key" data-key="D">D</span>
+                            <span class="virtual-key" data-key="F">F</span>
+                            <span class="virtual-key" data-key="G">G</span>
+                            <span class="virtual-key" data-key="H">H</span>
+                            <span class="virtual-key" data-key="J">J</span>
+                            <span class="virtual-key" data-key="K">K</span>
+                            <span class="virtual-key" data-key="L">L</span>
+                        </div>
+
+                        <div class="keyboard-row">
+                            <span class="virtual-key" data-key="Z">Z</span>
+                            <span class="virtual-key" data-key="X">X</span>
+                            <span class="virtual-key" data-key="C">C</span>
+                            <span class="virtual-key" data-key="V">V</span>
+                            <span class="virtual-key" data-key="B">B</span>
+                            <span class="virtual-key" data-key="N">N</span>
+                            <span class="virtual-key" data-key="M">M</span>
+                        </div>
+
+                    </div>
+
+                    <p id="key-details">
+                        Correct: 0 | Incorrect: 0 | Average Response: 0 ms
+                    </p>
+
+                </div>
+
+
+                <div class="game-controls">
+                    <button id="start-keygame" class="primary-btn">Start Game</button>
+                    <button id="stop-keygame" class="secondary-btn">Stop Game</button>
+                </div>
+
+            </div>
+
+
+            <!-- WORD CHALLENGE -->
+            <div id="word-game" class="game-area">
+
+                <div class="game-title">
+                    <div>
+                        <h2>🔤 Word Challenge</h2>
+                        <p>Type as many correct words as possible.</p>
+                    </div>
+                    <span class="game-level">WORD PRACTICE</span>
+                </div>
+
+                <div class="game-scoreboard">
+                    <div>
+                        <span>Score</span>
+                        <h3 id="word-score">0</h3>
+                    </div>
+
+                    <div>
+                        <span>Time Left</span>
+                        <h3 id="word-timer">30</h3>
+                    </div>
+
+                    <div>
+                        <span>Words Completed</span>
+                        <h3 id="word-count">0</h3>
+                    </div>
+                </div>
+
+                <div class="word-playground">
+                    <p>TYPE THIS WORD</p>
+                    <h2 id="target-word">Challenge</h2>
+
+                    <input type="text" id="word-input"
+                        placeholder="Type the word here..."
+                        autocomplete="off">
+
+                    <p id="word-feedback">Press Start Game to begin.</p>
+                </div>
+
+                <div class="game-controls">
+                    <button id="start-wordgame" class="primary-btn">Start Game</button>
+                    <button id="stop-wordgame" class="secondary-btn">Stop Game</button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LEADERBOARD -->
+        <section id="leaderboard" class="section">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Leaderboard</h2>
+                    <p>Your typing performance and highest scores.</p>
+                </div>
+                <span class="section-badge">TOP PLAYERS</span>
+            </div>
+
+            <div class="table-container">
+                <table class="leaderboard-table">
+
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Player</th>
+                            <th>WPM</th>
+                            <th>Accuracy</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="leaderboard-body">
+                        <tr>
+                            <td>1</td>
+                            <td>Player One (You)</td>
+                            <td id="leader-wpm">0</td>
+                            <td id="leader-accuracy">0%</td>
+                            <td id="leader-score">0</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+        </section>
+
+
+        <!-- ACHIEVEMENTS -->
+        <section id="achievements" class="section">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Achievements</h2>
+                    <p>Complete challenges and unlock rewards.</p>
+                </div>
+            </div>
+
+            <div class="achievement-grid">
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">🎯</div>
+                    <h3>First Test</h3>
+                    <p>Complete your first typing test.</p>
+                    <span id="first-test-status" class="locked">Locked</span>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">⚡</div>
+                    <h3>Speed Master</h3>
+                    <p>Reach 30 WPM or higher.</p>
+                    <span id="speed-status" class="locked">Locked</span>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">💎</div>
+                    <h3>Accuracy Expert</h3>
+                    <p>Achieve 95% accuracy.</p>
+                    <span id="accuracy-status" class="locked">Locked</span>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">🏆</div>
+                    <h3>Champion</h3>
+                    <p>Complete five typing tests.</p>
+                    <span id="champion-status" class="locked">Locked</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SETTINGS -->
+        <section id="settings" class="section">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Settings</h2>
+                    <p>Manage your game preferences.</p>
+                </div>
+            </div>
+
+            <div class="settings-card">
+
+                <div class="settings-row">
+                    <div>
+                        <h3>Sound Effects</h3>
+                        <p>Enable or disable game sound effects.</p>
+                    </div>
+                    <input type="checkbox" id="sound-setting" checked>
+                </div>
+
+                <div class="settings-row">
+                    <div>
+                        <h3>Typing Tips</h3>
+                        <p>Show helpful tips during practice.</p>
+                    </div>
+                    <input type="checkbox" id="tips-setting" checked>
+                </div>
+
+                <div class="settings-row">
+                    <div>
+                        <h3>Reset Progress</h3>
+                        <p>Clear your saved scores and achievements.</p>
+                    </div>
+                    <button id="reset-progress" class="danger-btn">Reset Progress</button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <h3>Type<span>Quest</span></h3>
+            <p>Practice your typing. Improve your speed. Become a champion.</p>
+            <p class="copyright">
+                © <span id="current-year"></span> TypeQuest. All Rights Reserved.
+            </p>
+        </footer>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="js/gameUtils.js"></script>
+    <script src="js/bubbles.js"></script>
+    <script src="js/keymagnet.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
