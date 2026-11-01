@@ -6,5 +6,8 @@ Typingquiz-screenshots
 
 <img width="1920" height="1080" alt="Screenshot (194)" src="https://github.com/user-attachments/assets/dfaa56d0-79a4-41d3-a972-9efd442a4f42" />
 
+<img width="1920" height="1080" alt="Screenshot (195)" src="https://github.com/user-attachments/assets/124b0f33-295a-4fc2-b487-4e193c270f70" />
+
+
 
 
