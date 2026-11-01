@@ -4,4 +4,7 @@ Typingquiz-screenshots
 
 <img width="1920" height="1080" alt="Screenshot (193)" src="https://github.com/user-attachments/assets/f9676b5e-caa6-4cb8-819c-921bab218b88" />
 
+<img width="1920" height="1080" alt="Screenshot (194)" src="https://github.com/user-attachments/assets/dfaa56d0-79a4-41d3-a972-9efd442a4f42" />
+
+
 
